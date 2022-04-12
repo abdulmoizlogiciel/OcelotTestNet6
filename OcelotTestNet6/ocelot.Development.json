@@ -1,0 +1,49 @@
+{
+  "Routes": [
+    {
+      "Key": "CustomPropValue",
+      "RequestIdKey": "jsonplaceholder-service-id",
+      "DownstreamPathTemplate": "/todos/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8008
+        }
+      ],
+      "UpstreamPathTemplate": "/todos/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "LoadBalancerOptions": {  
+        "Type": "CustomLoadBalancer"
+      }
+    },
+
+    {
+      "Key": "CustomPropValue",
+      "RequestIdKey": "service-1",
+      "UpstreamPathTemplate": "/todos",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/todos",
+      "DownstreamScheme": "http", // will have to define the downstream scheme here. ocelot is not considering the scheme passed in: new ServiceHostAndPort(string downstreamHost, int downstreamPort, string scheme) in the customLoadBalancer.
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5005
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "LoadBalancerOptions": {
+        "Type": "CustomLoadBalancer"
+      }
+    }
+  ],
+
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
+  }
+}

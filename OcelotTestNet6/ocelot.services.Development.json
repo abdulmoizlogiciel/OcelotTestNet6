@@ -1,0 +1,36 @@
+{
+  "service-1": {
+    "customer-1": [
+      {
+        "Host": "localhost",
+        "Port": 7001
+      },
+      {
+        "Host": "localhost",
+        "Port": 7002
+      },
+      {
+        "Host": "localhost",
+        "Port": 7003
+      }
+    ],
+    "customer-2": [
+      {
+        "Host": "localhost",
+        "Port": 7004
+      },
+      {
+        "Host": "localhost",
+        "Port": 7005
+      },
+      {
+        "Host": "localhost",
+        "Port": 7006
+      }
+    ]
+  },
+  "service-2": {
+    "customer-1": [],
+    "customer-2": []
+  }
+}
