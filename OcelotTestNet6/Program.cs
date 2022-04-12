@@ -53,7 +53,7 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapGet("/", context => context.Response.WriteAsync("Ocelot Running!"));
+    endpoints.MapGet("/", context => context.Response.WriteAsync("Hello World!"));
 });
 
 app.UseWebSockets();
